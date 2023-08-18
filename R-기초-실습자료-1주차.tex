@@ -1,0 +1,817 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={R 실습 자료 1차},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{R 실습 자료 1차}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{기초 사용법}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{uxb300uxc785-uxc5f0uxc0b0uxc790}{%
+\section{대입 연산자}\label{uxb300uxc785-uxc5f0uxc0b0uxc790}}
+
+대인 연산자(assignment operator)는 일반적으로 오른쪽에 기재된 부분을
+실행하고 그 결과를 대입연산자가 가리키는 객체에 할당(저장)하는 일을
+한다.
+
+R에서 대입연산자는 ``\textless-'' 또는 ``=''를 이용하는데 ``\textless-''
+와 ``-\textgreater{}''의 경우 화살표가 가르키는 방향으로 실행 결과를
+반환한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_one }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{value\_one}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+R의 경우 반대방향으로 실행이 가능하나 일반적으로 사용하지 않는 방법이다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \OtherTok{{-}\textgreater{}}\NormalTok{ value\_one}
+\NormalTok{value\_one}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+대입연산자를 등호 ``=''를 이용하는 경우에는 하면 오른쪽의 연산을 왼쪽의
+value\_one 이름의 변수에 저장한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_one }\OtherTok{=} \DecValTok{1}
+\NormalTok{value\_one}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+그럼 같다를 의미하는 연산자는 등호 두개를 연속해서 \texttt{==}를
+사용한다. 아래 문장을 실행하면 value\_one에 저장된 값이 1과 같은가를
+물어보는 문장으로 반환 결과는 TRUE 또는 FALSE이다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_one }\SpecialCharTok{==} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\hypertarget{uxac12uxc758-uxc785uxb825uxacfc-uxc790uxb8ccuxd615-uxd655uxc778}{%
+\section{값의 입력과 자료형
+확인}\label{uxac12uxc758-uxc785uxb825uxacfc-uxc790uxb8ccuxd615-uxd655uxc778}}
+
+R의 경우 기본적으로 저장하는 값의 자료형을 보고 자동적으로 변수의
+자료형을 결정한다.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{uxc22buxc790uxd615}{%
+\subsection{숫자형}\label{uxc22buxc790uxd615}}
+
+\hypertarget{uxc2e4uxc218}{%
+\subsubsection{실수}\label{uxc2e4uxc218}}
+
+정수를 저장하면 자동으로 실수형으로 지정이 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_numeric }\OtherTok{\textless{}{-}} \DecValTok{1}
+\FunctionTok{print}\NormalTok{(value\_numeric) }\CommentTok{\#객체를 출력하기 위한 print() 함수 호출}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(value\_numeric) }\CommentTok{\#객체의 자료형을 확인하기 위한 typeof() 함수 호출}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\hypertarget{uxd568uxc218}{%
+\paragraph{함수}\label{uxd568uxc218}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{print()} 함수는 R에 내장된 기본함수로 \texttt{()} 괄호 안에
+  기재된 내용을 출력해주는 일을 한다.
+\item
+  이름 뒤에 \texttt{()}가 오면 이 이름은 함수의 이름이다.
+\item
+  접두어 \texttt{is.}이 오면 점뒤에 오는 단어의 뜻이 맞는가를 물어보는
+  함수이다.
+\item
+  접두어 \texttt{as.}가 오면 \texttt{\textasciitilde{}로}의 뜻으로
+  점뒤에 오는 단어의 뜻으로 바꾸겠다는 함수이다.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.numeric}\NormalTok{(value\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.double}\NormalTok{(value\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_numericToint }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(value\_numeric) }\CommentTok{\#실수를 정수로 바꾼다.}
+\FunctionTok{is.double}\NormalTok{(value\_numericToint)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(value\_numericToint)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\hypertarget{uxc815uxc218}{%
+\subsubsection{정수}\label{uxc815uxc218}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_int }\OtherTok{\textless{}{-}} \FunctionTok{integer}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\FunctionTok{typeof}\NormalTok{(value\_int)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_int }\OtherTok{\textless{}{-}}\NormalTok{ 1L}
+\FunctionTok{typeof}\NormalTok{(value\_int)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{uxb17cuxb9acuxd615}{%
+\subsection{논리형}\label{uxb17cuxb9acuxd615}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_logical }\OtherTok{\textless{}{-}} \ConstantTok{TRUE}
+\FunctionTok{print}\NormalTok{(value\_logical)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(value\_logical)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "logical"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_logical }\OtherTok{\textless{}{-}} \ConstantTok{FALSE}
+\FunctionTok{typeof}\NormalTok{(value\_logical)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "logical"
+\end{verbatim}
+
+R에서 논리형 값인 TRUE와 FALSE는 대문자료 표기한다. 아래와 같이 입력할
+경우 오류 메세지를 반환한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_logical }\OtherTok{\textless{}{-}}\NormalTok{True}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in eval(expr, envir, enclos): 객체 'True'를 찾을 수 없습니다
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{uxbb38uxc790uxc5f4}{%
+\subsection{문자열}\label{uxbb38uxc790uxc5f4}}
+
+문자열은 항상 따옴표('\,') 또는 쌍따옴표(/``/'')로 감싸야 한다. 따옴표로
+감싸지 읺은 문자열은 특정 객체의 이름으로 인식하게 된다.
+
+\emph{문자열}은 문자의 열(a sequence of characters)이라고 하면 수의 열(a
+sequence of numbers)인 수열과 유사하다. 컴퓨터는 문자를 이진수로
+변환하여 저장하고, 저장된 이진수를 다시 문자로 변환하여 화면에 나타낸다.
+문자를 이진수로 변환하는 것을 암호화(encoding)라고 하고 이진수를 다시
+문자로 변환하는 것을 복호화(decoding)라고 한다. R은 아스키(American
+Standard Code for Information Interchange, ASCII)를 사용하기 때문에
+R에서 문자열은 아스키의 열이다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_str }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Hello\textquotesingle{}}
+\FunctionTok{print}\NormalTok{(value\_str)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Hello"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(value\_str)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+문자열의 아스키 값을 확인하기 위해 \texttt{charToraw()}함수를 이용해서
+변환해서 결과를 확인한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_str }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Hello\textquotesingle{}}
+\CommentTok{\# 문자열을 raw로 변환하는 함수를 이용하여 반환 결과를 확인}
+\CommentTok{\# 문자열의 ASCII 값을 반환한다. }
+\FunctionTok{charToRaw}\NormalTok{(value\_str) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 48 65 6c 6c 6f
+\end{verbatim}
+
+문자열은 여러 개의 문자를 순서대로 저장하는 일종의 자료구조이다. 따라서
+문자의 순서에 접근할 수 있으나 R에서는 인덱스를 이용해서 접근하지 않고
+함수나 \texttt{stringr} 패키지를 이용해서 문자열을 다룰 수 있다. 여기서
+문자열은 다루지 않겠지만 이러한 기능이 있다는 정도로 확인하면 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{value\_str }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Hello\textquotesingle{}}
+
+\CommentTok{\#슬라이싱(slicing) 연속적인 객체의 범위를 지정해서 객체를 가져오는 방법}
+\FunctionTok{substr}\NormalTok{(value\_str, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) }\CommentTok{\#1번째 인덱스에서 1개의 값을 추출}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "H"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{substr}\NormalTok{(value\_str, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{) }\CommentTok{\#1번째 인덱스에서 2개의 값을 추출}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "He"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{strsplit}\NormalTok{(value\_str, }\StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "H" "e" "l" "l" "o"
+\end{verbatim}
+
+\hypertarget{uxbca1uxd130vector}{%
+\section{벡터(vector)}\label{uxbca1uxd130vector}}
+
+R에서 하나이 상의 값을 저장하기 위한 객체로 벡터를 지원한다.
+\texttt{vector()} 함수를 호출할 때 mode 인자에 ``numeric'',
+``interger'', ``logical'', ``character'', ``complex'' 5개의 문자열 중
+하나를 값으로 전달하여 지정하고 이때 인자는 따옴표로 감싸서 문자열로
+전달해야 한다. 그리고 length에는 몇개의 값을 저장할 것인가에 대해서 값을
+주면 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 5명의 성별을 저장하기 위해 gender 변수를 생성한다. }
+\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{vector}\NormalTok{(}\AttributeTok{mode =} \StringTok{\textquotesingle{}character\textquotesingle{}}\NormalTok{, }\AttributeTok{length =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "" "" "" "" ""
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(gender) }\CommentTok{\# 벡터에 저장된 원소의 갯수를 확인하기 위해 length() 함수를 호출}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+벡터는 인덱스를 가지고 있기 때문에 익덱스에 접근해서 값을 저장한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{vector}\NormalTok{(}\AttributeTok{mode =} \StringTok{\textquotesingle{}character\textquotesingle{}}\NormalTok{, }\AttributeTok{length =} \DecValTok{5}\NormalTok{)}
+
+\NormalTok{gender[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"M"}
+\NormalTok{gender[}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"M"}
+\NormalTok{gender[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"F"}
+\NormalTok{gender[}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"F"}
+\NormalTok{gender[}\DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gender[}\DecValTok{4}\NormalTok{] }\CommentTok{\# genders의 4번째 인덱스 값을 불러와서 5번째에 저장}
+\FunctionTok{print}\NormalTok{(gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "M" "M" "F" "F" "F"
+\end{verbatim}
+
+변수의 값을 저장할 벡터 객체를 생성하기 위해 \texttt{vector()} 함수 대신
+\texttt{numeric()}, \texttt{interger()}, \texttt{logical()},
+\texttt{character()}, \texttt{complex()} 함수를 사용할 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{weight }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(weight)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## numeric(0)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{weight[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \FloatTok{62.0}
+\NormalTok{weight[}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FloatTok{62.9}
+\NormalTok{weight[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \FloatTok{36.1}
+\NormalTok{weight[}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \FloatTok{54.6}
+\NormalTok{weight[}\DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}} \FloatTok{48.5}
+\FunctionTok{print}\NormalTok{(weight)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 62.0 62.9 36.1 54.6 48.5
+\end{verbatim}
+
+rate 라는 변수를 숫자 벡터로 선언하고 값을 아래와 같이 입력한다. 3번째
+값을 문자로 입력하게 되면 어떻게 되는지 확인해 본다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rate }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{()}
+\NormalTok{rate[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1792}
+\NormalTok{rate[}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1666}
+\NormalTok{rate[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}995\textquotesingle{}} \CommentTok{\#문자로 저장한다면...}
+\NormalTok{rate[}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1425}
+\NormalTok{rate[}\DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1396}
+\FunctionTok{str}\NormalTok{(rate) }\CommentTok{\# 객체의 구조를 확인하기 위해 str() 함수를 호출}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  chr [1:5] "1792" "1666" "995" "1425" "1396"
+\end{verbatim}
+
+rate의 자료형이 문자로 바뀌어 있음을 확인할 수 있다. 하나의 벡터는
+동일한 자료형의 값들을 포함해야 한다. 오류로 판단되지만 R에서 자동으로
+자료형을 변경한다.
+
+이렇게 숫자형이 문자형으로 지정되는 경우 \texttt{as.numeric()}이나
+\texttt{as.integer()} 함수를 이용해서 자료형을 변경한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rate\_int }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(rate)}
+\FunctionTok{str}\NormalTok{(rate\_int)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  int [1:5] 1792 1666 995 1425 1396
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{uxac1duxccb4-uxad00uxb9ac}{%
+\subsubsection{객체 관리}\label{uxac1duxccb4-uxad00uxb9ac}}
+
+객체 목록을 확인하기 위해 \texttt{ls()} 함수를 이용한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "gender"             "rate"               "rate_int"          
+##  [4] "value_int"          "value_logical"      "value_numeric"     
+##  [7] "value_numericToint" "value_one"          "value_str"         
+## [10] "weight"
+\end{verbatim}
+
+객체를 지우기 위해서 \texttt{rm()}이용한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(gender) }\CommentTok{\# 객체 gender를 삭제}
+\FunctionTok{ls}\NormalTok{() }\CommentTok{\# 객체 목록을 확인}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "rate"               "rate_int"           "value_int"         
+## [4] "value_logical"      "value_numeric"      "value_numericToint"
+## [7] "value_one"          "value_str"          "weight"
+\end{verbatim}
+
+\emph{Rstudio}를 이용하면 환경 패널에서 관리가 가능하다.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{uxac04uxb2e8uxd788-uxbca1uxd130-uxb9ccuxb4e4uxae30}{%
+\subsection{간단히 벡터
+만들기}\label{uxac04uxb2e8uxd788-uxbca1uxd130-uxb9ccuxb4e4uxae30}}
+
+위에 방법은 고전적인 방법으로 벡터 객체의 각 공간에 값을 하나씩 저장하는
+방법을 사용하였다. 하지만 저장할 값의 개수가 많을 경우 이 방법은 상당히
+불편하다. 한꺼번에 여러 개의 값을 벡터 객체에 저장하거나, 자료의
+일부분이 저장된 여러 백터 객체를 묶어서 하나의 벡터 객체로 만드는 방법이
+필요하다. 이런 용도로 사용할 수 있는 함수가 \texttt{c()}함수이다. 본래
+\texttt{c()}함수는 여러 개의 객체를 하나의 객체로 통합해주는 함수인데,
+R은 값 하나 하나도 객체로 취급하기 때문에 여러 개의 값을 한꺼번에 입력할
+때도 사용할 수 있다.
+
+\texttt{c()}함수의 인자로 여러 개의 값을 한꺼번에 입력할 때 쉼표 ','로
+구분한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender.one }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"M"}\NormalTok{, }\StringTok{"M"}\NormalTok{)}
+\NormalTok{gender.two }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"F"}\NormalTok{)}
+\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(gender.one, gender.two)}
+\NormalTok{weight }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{62.0}\NormalTok{, }\FloatTok{62.9}\NormalTok{, }\FloatTok{36.1}\NormalTok{, }\FloatTok{54.6}\NormalTok{, }\FloatTok{48.5}\NormalTok{)}
+\NormalTok{rate }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1792}\NormalTok{, }\DecValTok{1666}\NormalTok{, }\DecValTok{995}\NormalTok{, }\DecValTok{1425}\NormalTok{, }\DecValTok{1396}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(gender.one)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "M" "M"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(gender.two)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "F" "F" "F"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "M" "M" "F" "F" "F"
+\end{verbatim}
+
+\hypertarget{uxc77cuxc815-uxac04uxaca9uxc758-uxc22buxc790uxb85c-uxad6cuxc131uxb41c-uxbca1uxd130-uxb9ccuxb4e4uxae30}{%
+\subsubsection{일정 간격의 숫자로 구성된 벡터
+만들기}\label{uxc77cuxc815-uxac04uxaca9uxc758-uxc22buxc790uxb85c-uxad6cuxc131uxb41c-uxbca1uxd130-uxb9ccuxb4e4uxae30}}
+
+등차수열을 생성하는 \texttt{seq()} 함수를 사용하면 일정 간격의 숫자로
+구성된 벡터를 만들 수 있다. \texttt{seq()} 함수를 호출할 때는 from, to,
+by, length 인자에 초항, 마지막 항, 공차, 수열 길이를 전달하면 된다.
+4가지 모두에 값을 전달할 필요는 없다. 도움말을 확인하기 위해
+\texttt{help()} 함수를 호출해서 \texttt{seq()} 함수를 확인해 본다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{help}\NormalTok{(seq)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## httpd 도움말 서버를 시작합니다 ... 완료
+\end{verbatim}
+
+여러가지 방법을 이용해서 확인해 본다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seq\_one }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\DecValTok{2}\NormalTok{, }\AttributeTok{to=}\DecValTok{10}\NormalTok{, }\AttributeTok{by=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(seq\_one)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seq\_two }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(seq\_two)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  2  4  6  8 10
+\end{verbatim}
+
+반복적인 작업이나 연속된 값이 필요할 경우에 \texttt{seq()}함수를
+호출하는 경우가 있다.
+
+\hypertarget{uxbcc0uxc218uxc758-uxcc99uxb3c4uxb97c-uxcc98uxb9acuxd558uxb294-uxbc29uxbc95}{%
+\section{변수의 척도를 처리하는
+방법}\label{uxbcc0uxc218uxc758-uxcc99uxb3c4uxb97c-uxcc98uxb9acuxd558uxb294-uxbc29uxbc95}}
+
+변수를 척도에 따라 분류하는 이유는 어떤 척도를 갖느냐에 따라 분석방법이
+달라지기 때문이다. 올바른 분석을 하기 위해서는 변수의 척도를 판단하고,
+이를 입력한 자료에 반영하여야 한다.
+
+R에서 벡터 객체를 생성하고 그 객체에 변수의 값을 입력한다고 해서 R이
+자동적으로 해당 변수의 척도를 알아내지는 못한다. 따라서 벡터 객체에
+자료를 입력하기 전이나 후에 변수의 척도와 관련된 적절한 조치를 취해야만
+한다. 특히 범주형 변수(명목척도, 순위척도)를 갖는 변수는 몇개의 한정된
+값만 가질 수 있을 뿐 아니라 각 값이 특정한 집단을 나타내거나 정도를
+나타낼때가 많다. 따라서 범주형 변수의 경우 벡터 객체에 변수의 값을
+입력한 다음 척도를 지정하여 타당하지 않은 연산이 실행되지 않도록 하여야
+한다.
+
+성별을 나타내는 gender라는 변수의 척도는 명목 척도이며 남자와 여자를
+나타내는 ``M''과 ``F'' 두가지 값만 가질 수 있다. gender 객체에 ``M''과
+``F''를 입력하기 때문에 R은 gender 벡터 객체를 문자열로 저장한 객체로
+인식할 것이고, 그 결과 ``M''이나 ``F''가 아닌 다른 문자열도 저장할 수
+있다.
+
+명목 척도나 순위 척도를 가지는 변수의 값을 저장할 벡터 객체에 대해서는
+이 벡터 객체에 저장할 수 있는 값과 각 값의 의미를 명시하는 것이
+바람직한다. 이런 목적으로 사용할 수 잇는 함수가 \texttt{factor()}이다.
+\texttt{factor()}를 호출할 때 값이 저장된 객체와 함께 추가로 levels,
+labels, ordered 인자의 값을 전달하여 척도와 관련된 사항을 명시한다. 인자
+levels에는 변수가 가질 수 있는 값이 들어 있는 벡터 객체를, 인자
+labels에는 levels 인자에 지정된 각 값에 부여할 이름이 들어 있는 벡터
+객체를, ordered 인자에는 명목척도인지 순위척도인지를 논리값 TRUE,
+FALSE로(또는 T, F) 지정한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"M"}\NormalTok{, }\StringTok{"M"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"F"}\NormalTok{)}
+\FunctionTok{str}\NormalTok{(gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  chr [1:5] "M" "M" "F" "F" "F"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender\_right }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(gender, }\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{),}
+                       \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"male"}\NormalTok{, }\StringTok{"female"}\NormalTok{), }\AttributeTok{ordered=}\NormalTok{F)}
+\FunctionTok{is.factor}\NormalTok{(gender\_right)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(gender\_right)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "male","female": 1 1 2 2 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(gender\_right)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] male   male   female female female
+## Levels: male female
+\end{verbatim}
+
+\texttt{factor()}함수에서 levels로 정의되지 않은 값을 입력할 경우에
+오류를 반환한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender\_right[}\DecValTok{6}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"f"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in `[<-.factor`(`*tmp*`, 6, value = "f"): 요인의 수준(factor level)이
+## 올바르지 않아 NA가 생성되었습니다.
+\end{verbatim}
+
+출력해서 확인해 보면 변수가 가질 수 없는 값 소문주 \textbf{f}는 결측을
+의미하는 \textbf{NA}가 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(gender\_right)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] male   male   female female female <NA>  
+## Levels: male female
+\end{verbatim}
+
+\begin{quote}
+\textbf{NA}는 Not Available 줄임말로 사용할 수 없는이며, 결측값을
+의미한다. \textbf{NaN}는 Not a Number의 줄임말로 정의 되지 않거나 할 수
+없는 결과를 수학 연산으로 나타내는데 사용한다. \textbf{NULL} 은 대부분
+언어에서 대상이 없다는 의미이다. \textbf{inf}는 infinite의 줄임말로
+무한대를 나타낸다.
+\end{quote}
+
+\end{document}
