@@ -19,13 +19,15 @@ R은 이용해서 통계 분석을 수행하기 위한 기초자료입니다.
 9. [첨부] 자습 자료
    1) R studio Education [https://education.rstudio.com/](https://education.rstudio.com/)
       - R 공식 홈페이지에서 운영하는 교육용 사이트로 단계별 교육을 제공한다.  
-   3) Hands-On Programming with R [https://rstudio-education.github.io/hopr/index.html](https://rstudio-education.github.io/hopr/index.html)
+   2) Hands-On Programming with R [https://rstudio-education.github.io/hopr/index.html](https://rstudio-education.github.io/hopr/index.html)
       - Hands-On Programming with R(Garrett Grolemund) 책의 공개판이다.
-   5) R Cookbook, 2nd [https://rc2e.com/](https://rc2e.com/)
+   3) R Cookbook, 2nd [https://rc2e.com/](https://rc2e.com/)
       -R Cookbook, 2nd Edition(James (JD) Long) 책의 공개판이다. 
-   7) Quick-R [https://www.statmethods.net/](https://www.statmethods.net/)
+   4) Quick-R [https://www.statmethods.net/](https://www.statmethods.net/)
       - Datacamp에서 제작한 R 교육 웹사이트이다. 
-   9) W3 schools [https://www.w3schools.com/r/default.asp](https://www.w3schools.com/r/default.asp)
+   5) W3 schools [https://www.w3schools.com/r/default.asp](https://www.w3schools.com/r/default.asp)
        - W3 schools에서 R의 교육하기 위한 사이트이며, 그외에 다양한 언어를 배울 수 있다. 또한 웹 기반으로 코딩을 실행하고 테스트할 수 있다. 
-   11) 쉽게 배우는 R 데이터분석[https://github.com/youngwoos/Doit_R](https://github.com/youngwoos/Doit_R)
-       - 쉽게 배우는 R 데이터분석 책의 깃허브 저장소로, 책 뿐만아니라 실습자료, R 스크립트파일을 제공한다. 
+   6) 쉽게 배우는 R 데이터분석[https://github.com/youngwoos/Doit_R](https://github.com/youngwoos/Doit_R)
+       - 쉽게 배우는 R 데이터분석 책의 깃허브 저장소로, 책 뿐만아니라 실습자료, R 스크립트파일을 제공한다.
+   7) [https://greendaygh.github.io/Rstat2019/](https://greendaygh.github.io/Rstat2019/)
+
