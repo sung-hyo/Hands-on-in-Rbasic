@@ -15,12 +15,18 @@ R은 이용해서 통계 분석을 수행하기 위한 기초자료입니다.
    1) 패키지 설치와 사용법
    2) 데이터 불러오기와 전처리
    3) 기초분석
+4. 4 주차
+   1) 로지스틱 회귀 분석
+   2) 생존 분석
+  
 
 [1주차 실습자료 미리보기](https://htmlpreview.github.io/?https://github.com/sung-hyo/Hands-on-in-Rbasic/blob/main/1%EC%A3%BC%EC%B0%A8%20R%20%EA%B5%90%EC%9C%A1(%EA%B8%B0%EC%B4%88).html)
 
 [2주차 실습자료 미리보기](https://htmlpreview.github.io/?https://github.com/sung-hyo/Hands-on-in-Rbasic/blob/main/2%EC%A3%BC%EC%B0%A8%20R%20%EA%B5%90%EC%9C%A1(%EA%B8%B0%EC%B4%88)_%EC%88%98%EC%A0%95.html)
 
 [3주차 R교육(기초분석) 미리보기](https://htmlpreview.github.io/?https://github.com/sung-hyo/Hands-on-in-Rbasic/blob/main/3%EC%A3%BC%EC%B0%A8%20R%EA%B5%90%EC%9C%A1(%EA%B8%B0%EC%B4%88%EB%B6%84%EC%84%9D).html)
+
+[4주차 R교육(로지스틱, 생존분석) 미리보기](https://htmlpreview.github.io/?https://github.com/sung-hyo/Hands-on-in-Rbasic/blob/main/4%EC%A3%BC%EC%B0%A8%20R%EA%B5%90%EC%9C%A1(%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1%2C%20%EC%83%9D%EC%A1%B4%EB%B6%84%EC%84%9D).html)
 
 9. [첨부] 자습 자료
    1) R studio Education [https://education.rstudio.com/](https://education.rstudio.com/)
